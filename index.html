@@ -16,7 +16,6 @@
         <header class="hero">
             <div class="hero-card">
                 <h1><em>B-repLer</em>: Language-guided Editing of CAD Models</h1>
-                <p class="venue">CVPR 2026 submission 1477</p>
 
                 <p class="authors">
                     <span class="author">Yilin Liu<sup>1</sup></span>
@@ -253,6 +252,7 @@
     </div>
 
     <script>
+        // Load multi-edit models (first page)
         document.getElementById('multi-edit-initial').src = "assets/model1.glb";
         document.getElementById('multi-edit-step-1').src = "assets/model2.glb";
         document.getElementById('multi-edit-step-2').src = "assets/model3.glb";
@@ -289,6 +289,7 @@
         const sourceViewer = document.getElementById('gallery-source');
         const resultViewer = document.getElementById('gallery-result');
         const promptBlock = document.getElementById('gallery-prompt');
+        const loadedGallerySets = new Set(); // Track loaded sets
 
         const applyGallerySet = (key) => {
             const data = gallerySets[key];
@@ -296,11 +297,20 @@
                 return;
             }
 
-            sourceViewer.src = data.source;
-            resultViewer.src = data.result;
+            // Only load models if not already loaded
+            if (!loadedGallerySets.has(key)) {
+                sourceViewer.src = data.source;
+                resultViewer.src = data.result;
+                loadedGallerySets.add(key);
+            } else {
+                // Just switch to already loaded models
+                sourceViewer.src = data.source;
+                resultViewer.src = data.result;
+            }
             promptBlock.textContent = data.prompt;
         };
 
+        // Load only the first gallery set on page load
         applyGallerySet('set1');
 
         galleryTabs.forEach((tab) => {
@@ -353,6 +363,7 @@
         const extendedSourceViewer = document.getElementById('gallery-six-source');
         const extendedResultViewer = document.getElementById('gallery-six-result');
         const extendedPromptBlock = document.getElementById('gallery-six-prompt');
+        const loadedExtendedSets = new Set(); // Track loaded sets
 
         const applyExtendedGallerySet = (key) => {
             const data = extendedGallerySets[key];
@@ -360,11 +371,20 @@
                 return;
             }
 
-            extendedSourceViewer.src = data.source;
-            extendedResultViewer.src = data.result;
+            // Only load models if not already loaded
+            if (!loadedExtendedSets.has(key)) {
+                extendedSourceViewer.src = data.source;
+                extendedResultViewer.src = data.result;
+                loadedExtendedSets.add(key);
+            } else {
+                // Just switch to already loaded models
+                extendedSourceViewer.src = data.source;
+                extendedResultViewer.src = data.result;
+            }
             extendedPromptBlock.textContent = data.prompt;
         };
 
+        // Load only the first extended gallery set on page load
         applyExtendedGallerySet('setA');
 
         extendedTabs.forEach((tab) => {
