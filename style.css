@@ -42,11 +42,12 @@ a {
 .hero {
   display: flex;
   justify-content: center;
+  margin-bottom: var(--space-xl);
 }
 
 .hero-card {
   width: 100%;
-  padding: var(--space-xl) var(--space-lg);
+  padding: var(--space-lg) var(--space-lg);
   background: var(--card-bg);
   border-radius: 24px;
   box-shadow: var(--shadow-soft);
@@ -78,6 +79,52 @@ a {
   margin-top: var(--space-sm);
   font-size: 0.9rem;
   color: var(--text-muted);
+}
+
+.links {
+  margin-top: var(--space-lg);
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.link-button {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  background: #eef2ff;
+  color: #4338ca;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  border: 1px solid #c7d2fe;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.1);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.link-button:hover {
+  background: #e0e7ff;
+  border-color: #a5b4fc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.link-button:active {
+  transform: translateY(0);
+}
+
+.link-button-disabled {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  background: #e5e7eb;
+  color: #9ca3af;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  cursor: not-allowed;
+  user-select: none;
 }
 
 
