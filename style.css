@@ -242,6 +242,7 @@ a {
   font-weight: 500;
   color: var(--text-main);
   font-size: 0.95rem;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 .multi-edit-models {
@@ -283,6 +284,114 @@ a {
   box-shadow: var(--shadow-soft);
   font-size: 2rem;
   color: var(--text-muted);
+}
+
+.repeat-note {
+  border: 1px dashed rgba(79, 70, 229, 0.35);
+  background: rgba(79, 70, 229, 0.06);
+  text-align: center;
+  padding: var(--space-md) var(--space-lg);
+}
+
+.section-note {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #312e81;
+}
+
+/* Gallery switcher */
+
+.gallery-switcher {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.gallery-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-sm);
+}
+
+#gallery-six .gallery-tabs {
+  grid-template-columns: repeat(6, minmax(130px, 1fr));
+}
+
+.gallery-tab,
+.gallery-tab-six {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.gallery-tab:hover,
+.gallery-tab:focus-visible,
+.gallery-tab-six:hover,
+.gallery-tab-six:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+  border-color: rgba(79, 70, 229, 0.5);
+}
+
+.gallery-tab.is-active,
+.gallery-tab-six.is-active {
+  background: #eef2ff;
+  border-color: #4f46e5;
+  color: #312e81;
+  box-shadow: var(--shadow-soft);
+}
+
+.gallery-display {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+  align-items: stretch;
+}
+
+.gallery-model {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.gallery-caption {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.interactive-note {
+  margin-top: var(--space-md);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.gallery-prompt {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-main);
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  border: 1px solid var(--border-subtle);
 }
 
 /* ---- Results cards ---- */
@@ -386,5 +495,17 @@ a {
     width: 40px;
     height: 40px;
     font-size: 1.5rem;
+  }
+
+  .gallery-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-display {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-prompt {
+    order: -1;
   }
 }
